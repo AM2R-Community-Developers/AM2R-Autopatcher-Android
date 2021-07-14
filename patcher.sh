@@ -111,8 +111,8 @@ apktool d -f data/android/AM2RWrapper.apk
 mv "${OUTPUT}" assets
 cp -Rp assets AM2RWrapper
 #supply an edited yaml thing to not compress ogg's
-wget https://github.com/Miepee/AM2R-Autopatcher-Android/raw/apktool.yml
-mv -f apktool.yml AM2RWrapper/apktoo.yml
+wget https://github.com/Miepee/AM2R-Autopatcher-Android/raw/main/apktool.yml
+mv -f apktool.yml AM2RWrapper/apktool.yml
 #build
 apktool b AM2RWrapper -o AM2R-"${VERSION}".apk
 
