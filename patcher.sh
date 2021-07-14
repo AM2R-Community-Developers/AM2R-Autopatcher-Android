@@ -11,8 +11,15 @@ if [ -d "assets/" ]; then
     rm -rf assets/
 fi
 
-if [ -d "$AM2RWrapper/" ]; then
+if [ -d "AM2RWrapper/" ]; then
     rm -rf AM2RWrapper/
+fi
+
+if [ -d "data/" ]; then
+    rm -rf data/
+fi
+if [ -d "HDR_HQ_in-game_music/" ]; then
+    rm -rf HDR_HQ_in-game_music
 fi
 
 echo "-------------------------------------------"
@@ -79,7 +86,7 @@ if [ $INPUT = "y" ]; then
     svn export https://github.com/Miepee/AM2R-Autopatcher-Android/trunk/HDR_HQ_in-game_music
     echo "Copying HQ music..."
     cp -f HDR_HQ_in-game_music/*.ogg "${OUTPUT}"/
-    rm -rf HDQ_HQ_in-game_music/
+    rm -rf HDR_HQ_in-game_music/
 fi
 
 echo "updating lang folder..."
@@ -109,7 +116,7 @@ cp -Rp assets AM2RWrapper
 apktool b AM2RWrapper -o AM2R-"${VERSION}".apk
 
 # Cleanup
-rm -R assets/ AM2RWrapper/
+rm -R assets/ AM2RWrapper/ data/ HDR_HQ_in-game_music/
 # Move APK
 mv AM2R-"${VERSION}".apk ~/storage/downloads/AM2R-"${VERSION}".apk
 
