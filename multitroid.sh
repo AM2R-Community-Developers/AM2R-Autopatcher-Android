@@ -1,4 +1,4 @@
-VERSION="15_2"
+VERSION="Multitroid-13"
 OUTPUT="am2r_"${VERSION}
 INPUT=""
 
@@ -18,13 +18,18 @@ fi
 if [ -d "data/" ]; then
     rm -rf data/
 fi
+
 if [ -d "HDR_HQ_in-game_music/" ]; then
     rm -rf HDR_HQ_in-game_music
 fi
 
+if [ -f "multitroid.zip" ]; then
+    rm -rf multitroid.zip
+fi
+
 echo "-------------------------------------------"
 echo ""
-echo "AM2R 1.5.2 Shell Autopatching Utility"
+echo "AM2R Multitroid Shell Autopatching Utility"
 echo "Scripted by Miepee and help from Lojemiru"
 echo ""
 echo "-------------------------------------------"
@@ -41,6 +46,21 @@ fi
 
 #download the patch data
 svn export https://github.com/Miepee/AM2R-Autopatcher-Android/trunk/data
+
+#download multitroid mod
+#check this for more info: https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
+curl -s https://api.github.com/repos/lassiterm/AM2R-Multitroid/releases/latest \     
+| grep "browser_download_url.*win.zip" \
+| cut -d : -f 2,3 \
+| tr -d \" \
+| wget -O multitroid.zip -qi -
+
+#unzip into data/
+unzip -o multitroid.zip -d data
+
+#clean up the unecessary files
+rm -rf data/AM2R.xdelta data/data.xdelta data/profile.xml data/files_to_copy/mods/ data/files_to_copy/lang/headers/
+
 
 #check if termux-storage has been setup
 if ! [ -d ~/storage ]; then
