@@ -29,13 +29,8 @@ echo "Scripted by Miepee and help from Lojemiru"
 echo ""
 echo "-------------------------------------------"
 
-#install dependencies: apktool and git and clone repo
+#install dependencies
 pkg install subversion zip unzip xdelta3 -y
-if ! [ -f /data/data/com.termux/files/usr/bin/apktool ]; then
-    wget https://github.com/Lexiie/Termux-Apktool/raw/master/apktool_2.3.4_all.deb
-    dpkg -i apktool_2.3.4_all.deb
-    rm -f apktool_2.3.4_all.deb
-fi
 
 #check if apkmod is instaled, if not install it. I only use this for signing 'cause it's the only way I found this to work
 if ! [ -f /data/data/com.termux/files/usr/bin/apkmod ]; then
@@ -81,7 +76,7 @@ cp -p data/android/AM2R.ini "${OUTPUT}"/
 cp data/files_to_copy/*.ogg "${OUTPUT}"/
 
 echo ""
-echo "Install high quality in-game music? Increases filesize by 230 MB and may lag the game!"
+echo -e "\033[0;32mInstall high quality in-game music? Increases filesize by 230 MB and may lag the game\!"
 echo ""
 echo "[y/n]"
 
@@ -113,17 +108,17 @@ rm temp.zip
 
 echo "Packaging APK..."
 #decompile the apk
-apkmod -d data/android/AM2RWrapper.apk- o AM2RWrapper
+apkmod -d data/android/AM2RWrapper.apk -o AM2RWrapper
 #copy
 mv "${OUTPUT}" assets
 cp -Rp assets AM2RWrapper
 #edited yaml thing to not compress ogg's
+echo "editing apktool.yml"
 sed -i "s/doNotCompress:/doNotCompress:\n- ogg/" AM2RWrapper/apktool.yml
 #build
-apkmod -b AM2RWrapper -o AM2R-"${VERSION}".apk
-
+apkmod -r AM2RWrapper -o AM2R-"${VERSION}".apk
 #Sign apk
-apkmod -s AM2R-"${VERSION}".apk AM2R-"${VERSION}"-signed.apk
+apkmod -s AM2R-"${VERSION}".apk -o AM2R-"${VERSION}"-signed.apk
 
 # Cleanup
 rm -R assets/ AM2RWrapper/ data/ AM2R-"${VERSION}".apk
@@ -132,6 +127,5 @@ rm -R assets/ AM2RWrapper/ data/ AM2R-"${VERSION}".apk
 mv AM2R-"${VERSION}"-signed.apk ~/storage/downloads/AM2R-"${VERSION}"-signed.apk
 
 echo ""
-echo "The operation was completed successfully and the APK can be found in your Downloads folder."
-echo "DON'T FORGET TO SIGN THE APK!!! You can use an app like \"Mi\" for this."
-echo "See you next mission!"
+echo -e "\033[0;32mThe operation was completed successfully and the APK can be found in your Downloads folder."
+echo -e "\033[0;32mSee you next mission\!"
