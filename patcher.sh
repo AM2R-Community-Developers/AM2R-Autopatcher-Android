@@ -113,14 +113,14 @@ rm temp.zip
 
 echo "Packaging APK..."
 #decompile the apk
-apktool d data/android/AM2RWrapper.apk
+apkmod -d data/android/AM2RWrapper.apk- o AM2RWrapper
 #copy
 mv "${OUTPUT}" assets
 cp -Rp assets AM2RWrapper
 #edited yaml thing to not compress ogg's
 sed -i "s/doNotCompress:/doNotCompress:\n- ogg/" AM2RWrapper/apktool.yml
 #build
-apktool b AM2RWrapper -o AM2R-"${VERSION}".apk
+apkmod -b AM2RWrapper -o AM2R-"${VERSION}".apk
 
 #Sign apk
 apkmod -s AM2R-"${VERSION}".apk AM2R-"${VERSION}"-signed.apk
