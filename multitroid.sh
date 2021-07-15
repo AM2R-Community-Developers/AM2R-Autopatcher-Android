@@ -49,11 +49,7 @@ svn export https://github.com/Miepee/AM2R-Autopatcher-Android/trunk/data
 
 #download multitroid mod
 #check this for more info: https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
-curl -s https://api.github.com/repos/lassiterm/AM2R-Multitroid/releases/latest \     
-| grep "browser_download_url.*win.zip" \
-| cut -d : -f 2,3 \
-| tr -d \" \
-| wget -O multitroid.zip -qi -
+curl -s https://api.github.com/repos/lassiterm/AM2R-Multitroid/releases/latest | grep "browser_download_url.*win.zip" | cut -d : -f 2,3 | tr -d \" | wget -O multitroid.zip -qi -
 
 #unzip into data/
 unzip -o multitroid.zip -d data
