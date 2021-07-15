@@ -56,7 +56,8 @@ if [ -f ~/storage/downloads/AM2R_11.zip ]; then
     #extract the content to the am2r_xx folder
     unzip -q ~/storage/downloads/AM2R_11.zip -d "${OUTPUT}"
 else
-    echo "AM2R_11 not found. Place AM2R_11.zip (case sensitive) into your Downloads folder and try again."
+    echo -e "\033[0;31mAM2R_11 not found. Place AM2R_11.zip (case sensitive) into your Downloads folder and try again."
+    echo -e "\033[1;37m"
     exit -1
 fi
 
@@ -77,7 +78,7 @@ cp data/files_to_copy/*.ogg "${OUTPUT}"/
 
 echo ""
 echo -e "\033[0;32mInstall high quality in-game music? Increases filesize by 230 MB and may lag the game\!"
-echo ""
+echo -e "\033[1;37m"
 echo "[y/n]"
 
 read -n1 INPUT
@@ -91,13 +92,13 @@ if [ $INPUT = "y" ]; then
     rm -rf HDR_HQ_in-game_music/
 fi
 
-echo "updating lang folder..."
+echo "Updating lang folder..."
 #remove old lang
 rm -R "${OUTPUT}"/lang/
 #install new lang
 cp -RTp data/files_to_copy/lang/ "${OUTPUT}"/lang/
 
-echo "renaming music to lowercase..."
+echo "Renaming music to lowercase..."
 #I can't figure out a better way to mass rename files to lowercase
 #so zipping them without compression and extracting them as all lowercase it is
 #music needs to be all lowercase
@@ -113,7 +114,7 @@ apkmod -d data/android/AM2RWrapper.apk -o AM2RWrapper
 mv "${OUTPUT}" assets
 cp -Rp assets AM2RWrapper
 #edited yaml thing to not compress ogg's
-echo "editing apktool.yml"
+echo "Editing apktool.yml..."
 sed -i "s/doNotCompress:/doNotCompress:\n- ogg/" AM2RWrapper/apktool.yml
 #build
 apkmod -r AM2RWrapper -o AM2R-"${VERSION}".apk
@@ -129,3 +130,4 @@ mv AM2R-"${VERSION}"-signed.apk ~/storage/downloads/AM2R-"${VERSION}"-signed.apk
 echo ""
 echo -e "\033[0;32mThe operation was completed successfully and the APK can be found in your Downloads folder."
 echo -e "\033[0;32mSee you next mission\!"
+echo -e "\033[1;37m"
