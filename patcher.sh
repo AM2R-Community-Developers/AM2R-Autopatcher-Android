@@ -30,11 +30,18 @@ echo ""
 echo "-------------------------------------------"
 
 #install dependencies: apktool and git and clone repo
-pkg install subversion zip unzip xdelta3
+pkg install subversion zip unzip xdelta3 -y
 if ! [ -f /data/data/com.termux/files/usr/bin/apktool ]; then
     wget https://github.com/Lexiie/Termux-Apktool/raw/master/apktool_2.3.4_all.deb
-    dpkg -i apktool_2.3.4_all.deb > /data/data/com.termux/files/
+    dpkg -i apktool_2.3.4_all.deb
     rm -f apktool_2.3.4_all.deb
+fi
+
+#check if apkmod is instaled, if not install it. I only use this for signing 'cause it's the only way I found this to work
+if ! [ -f /data/data/com.termux/files/usr/bin/apkmod ]; then
+    wget https://raw.githubusercontent.com/Hax4us/Apkmod/master/setup.sh
+    sh setup.sh
+    rm -f setup.sh
 fi
 
 #download the patch data
@@ -116,10 +123,16 @@ mv -f apktool.yml AM2RWrapper/apktool.yml
 #build
 apktool b AM2RWrapper -o AM2R-"${VERSION}".apk
 
-# Cleanup
-rm -R assets/ AM2RWrapper/ data/ HDR_HQ_in-game_music/
-# Move APK
-mv AM2R-"${VERSION}".apk ~/storage/downloads/AM2R-"${VERSION}".apk
+#Sign apk
+apkmod -s AM2R-"${VERSION}".apk AM2R-"${VERSION}"-signed.apk
 
-echo "The operation was completed successfully and the APK can be found in your Downloads folder. See you next mission!"
-echo "DON'T FORGET TO SIGN THE APK!!! You can use a tool like \"Apk Explorer & Editor\" for this."
+# Cleanup
+rm -R assets/ AM2RWrapper/ data/ AM2R-"${VERSION}".apk
+
+# Move signed APK
+mv AM2R-"${VERSION}"-signed.apk ~/storage/downloads/AM2R-"${VERSION}"-signed.apk
+
+echo ""
+echo "The operation was completed successfully and the APK can be found in your Downloads folder."
+echo "DON'T FORGET TO SIGN THE APK!!! You can use an app like \"Mi\" for this."
+echo "See you next mission!"
