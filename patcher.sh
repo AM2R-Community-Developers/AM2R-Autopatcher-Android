@@ -81,7 +81,7 @@ cp -p data/android/AM2R.ini "${OUTPUT}"/
 cp data/files_to_copy/*.ogg "${OUTPUT}"/
 
 echo ""
-echo "Install high quality in-game music? Increases filesize by 194 MB and may lag the game!"
+echo "Install high quality in-game music? Increases filesize by 230 MB and may lag the game!"
 echo ""
 echo "[y/n]"
 
@@ -113,13 +113,12 @@ rm temp.zip
 
 echo "Packaging APK..."
 #decompile the apk
-apktool d -f data/android/AM2RWrapper.apk
+apktool d data/android/AM2RWrapper.apk
 #copy
 mv "${OUTPUT}" assets
 cp -Rp assets AM2RWrapper
-#supply an edited yaml thing to not compress ogg's
-wget https://github.com/Miepee/AM2R-Autopatcher-Android/raw/main/apktool.yml
-mv -f apktool.yml AM2RWrapper/apktool.yml
+#edited yaml thing to not compress ogg's
+sed -i "s/doNotCompress:/doNotCompress:\n- ogg/" AM2RWrapper/apktool.yml
 #build
 apktool b AM2RWrapper -o AM2R-"${VERSION}".apk
 
