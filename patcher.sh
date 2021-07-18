@@ -131,3 +131,4 @@ echo ""
 echo -e "\033[0;32mThe operation was completed successfully and the APK can be found in your Downloads folder as \"AM2R-${VERSION}-signed.apk\"."
 echo -e "\033[0;32mSee you next mission\!"
 echo -e "\033[1;37m"
+xdg-open ~/storage/downloads/AM2R-"${VERSION}"-signed.apk
