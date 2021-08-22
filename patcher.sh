@@ -1,4 +1,4 @@
-VERSION="15_2"
+VERSION="15_4"
 OUTPUT="am2r_"${VERSION}
 INPUT=""
 
@@ -24,7 +24,7 @@ fi
 
 echo "-------------------------------------------"
 echo ""
-echo "AM2R 1.5.2 Shell Autopatching Utility"
+echo "AM2R 1.5.4 Shell Autopatching Utility"
 echo "Scripted by Miepee and help from Lojemiru"
 echo ""
 echo "-------------------------------------------"
@@ -40,7 +40,7 @@ if ! [ -f /data/data/com.termux/files/usr/bin/apkmod ]; then
 fi
 
 #download the patch data
-svn export https://github.com/Miepee/AM2R-Autopatcher-Android/trunk/data
+svn export https://github.com/AM2R-Community-Developers/AM2R-Autopatcher-Android/trunk/data
 
 #check if termux-storage has been setup
 if ! [ -d ~/storage ]; then
@@ -86,7 +86,7 @@ echo ""
 
 if [ $INPUT = "y" ]; then
     echo "Downloading HQ music..."
-    svn export https://github.com/Miepee/AM2R-Autopatcher-Android/trunk/HDR_HQ_in-game_music
+    svn export https://github.com/AM2R-Community-Developers/AM2R-Autopatcher-Android/trunk/HDR_HQ_in-game_music
     echo "Copying HQ music..."
     cp -f HDR_HQ_in-game_music/*.ogg "${OUTPUT}"/
     rm -rf HDR_HQ_in-game_music/

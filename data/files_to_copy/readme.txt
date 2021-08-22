@@ -1,5 +1,5 @@
 PROJECT AM2R
-v1.5.2
+v1.5.4
 
 bit.ly/AM2Rblog
 reddit.com/r/AM2R
@@ -733,6 +733,44 @@ CHANGELOG
 - Fixed a camera snapping issue in widescreen.
 - Other minor fixes.
 
+1.5.3
+- Switched back to Virtual Machine builds to allow better modding support through the UndertaleModTool.
+- Tweaked the Windows sleep margin setting - this is the primary cause of the random slowdowns people have been running into.
+	- We changed it from 1 to 10, which should resolve the issue for most people.
+	- However! This setting is very odd and doesn't work the same for every machine, so you may need to adjust it yourself in options.ini.
+- Moved the custom palette files into an "inactive" folder to prevent them from running by default - this should speed up performance on lower-end machines.
+- Made the default volume quieter. This will not affect any existing settings, but should be more gracious towards new players' ears and speakers.
+- Changed pseudo-Screw Attack behavior to retain the charge when spaceboosting through enemies.
+- Added localization author display to the Display menu.
+- Added Portuguese, Brazilian Portuguese, Ukranian, and Swedish localizations.
+- Reworked the credits for timing and readability concerns.
+- Implemented behavior for EMP effects on Sensitivity Mode.
+- Linux fixes: 
+	- Fixed garbled graphics during a fullscreen boot.
+	- Fixed external title/area file loading.
+- Fixed VM-specific memory leak in A6 (Search and Rescue Hideout/Omega Nest).
+- Fixed character error in the Glasstown NBP font.
+- Fixed RandomGame+ Seed setting text shadow.
+- Fixed custom palette behavior for the Fusion Suit.
+- Fixed inconsistencies in the "controller recommended" graphic.
+- Fixed restart bug for the custom item room theme.
+- Fixed in-game timer and item% display on HUD when disabled.
+- Fixed an animation bug in the A5 (Distribution Center) bubble vents on YYC builds.
+- Fixed a hitbox inconsistency in Genesis' turning animation.
+- Fixed audio stacking bug when killing the Ancient Guardian with the Speed Booster.
+- Fixed incorrect Halzyn sprites being drawn by freshly spawned X Parasites.
+- Fixed Drillevator not spawning under certain conditions.
+- Fixed(?) audio bug when picking up a Core-X while holding a charged shot.
+- Fixed incorrect map markings for the Research Site Alphas when widescreen is enabled.
+- Fixed incorrect drawing behavior for some Title menu options.
+- Fixed crash when opening the Extras menu on certain devices.
+- Fixed frozen enemy hitsound stacking.
+- Other misc. fixes.
+- Added Ridley?
+
+1.5.4
+- Fixed shader crash on Fusion Difficulty.
+
 
 
 Thanks for supporting this continued effort. See you next mission!
@@ -808,25 +846,40 @@ YellowAfterlife
 
 Continued Revisions
 
-Lead - Former
+Development
 Gatordile
 Alex 'Wanderer' Mack
-
-Lead
 Lojemiru
 
-Development
+Programming
 Craig Kostelecky
 Metroid3D
 
 Art Lead
-Dannon "Shmegleskimo" Yates
+Dannon 'Shmegleskimo' Yates
 
 Art
 ShirtyScarab
-Cooper
+Cooper Garvin
 Chris 'Messianic' Oliveira
 ChloePlz
+
+Localization
+Imsu, Diegomg
+m3Zz, LPCaiser
+Miepee, unknown
+fedprod, ReNext
+LetsPlayNintendoITA
+SadNES cITy e Vecna
+Atver, Gponys
+DarkEspeon, Vectrex28
+R3VOWOOD, Ritinha
+LiveLM, pMega0n
+peachflavored, Katherine_S2003
+PanHooHa, realgard
+Mister Bond, joe_urahara
+RippeR1692, LudvigNG
+Andréas
 
 Special Thanks
 Banjo, Grom PE
