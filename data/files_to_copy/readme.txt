@@ -1,5 +1,5 @@
 PROJECT AM2R
-v1.5.4
+v1.5.5
 
 bit.ly/AM2Rblog
 reddit.com/r/AM2R
@@ -31,6 +31,9 @@ FAQ
 Look in your AppData/Local folder, it's usually in this location:
 C:\Users\[Your User Name]\AppData\Local\AM2R
 
+For Linux, it can be found at this location:
+/home/[Your User Name]/.config/AM2R
+
 - Why are my screenshots so big?
 The screenshots are now taken with the size of the displayed window.
 If you want the classic 320x240 screenshots, set the display to Windowed 1x
@@ -42,7 +45,7 @@ No. The game has changed a lot since the demo, along with the save format.
 - Can I use save files from versions before 1.4.3?
 Yes, but compatability is not guaranteed. Saves are located in C:\Users\[Your User Name]\AppData\Local\AM2R.
 1.0/1.1 saves use the filename savN.
-1.5 saves use the filename saveN.
+1.5+ saves use the filename saveN.
 Some older Community Update saves use the filename saveXN.
 
 - I have an Arcade cabinet, can I exit AM2R with just 1 key?
@@ -54,6 +57,13 @@ KeyboardButtonExit, JoystickButtonExit and XBJoypadButtonExit can be used to
 customize which button / key is used to exit. Default is ESC for keyboard,
 Back for XInput, and button 10 for DirectInput.
 
+FAQ Continued Revisions
+- Did DoctorM64 have anything to do with this?
+DoctorM64 has nothing to do with this. He did not supply the source code.
+
+- How did you get the source code for AM2R?
+https://gitlab.com/users/yellowafterlife/projects
+
 - The Fusion suit doesn't change colors for the different types. Help!
 AM2R requires DirectX9.0 installed and hardware shader support to properly 
 display art in Fusion mode, allow the 8-bit shader to work, and enable custom 
@@ -64,40 +74,29 @@ features will not work properly.
 The required DirectX version (June 2010) can be found on Microsoft's website here:
 https://download.microsoft.com/download/8/4/A/84A35BF1-DAFE-4AE8-82AF-AD2AE20B6B14/directx_Jun2010_redist.exe
 
-
-FAQ Continued Revisions
-- Did DoctorM64 have anything to do with this?
-DoctorM64 has nothing to do with this. He did not supply the source code.
-
-- How did you get the source code for AM2R?
-https://gitlab.com/users/yellowafterlife/projects
-
 - Will you add Ridley?
-Ridley will not be added to AM2R, as he does not fit well within the story of AM2R. 
-In addition, no other bosses will be added to the game.
+...
 
 - Will you add new areas or powerups?
 No. The development team believes that the world of AM2R is complete, and we are 
 focusing on improving what exists rather than adding totally new content.
 
-- Will you add mod support?
-Outside of the damage modifiers, no other user modifications are currently planned.
-
 - What's the most up-to-date version?
-The latest version of AM2R will always be posted at www.reddit.com/r/AM2R. 
+The latest version of AM2R will always be posted at www.reddit.com/r/AM2R and will
+automatically be installed if you are using the AM2RLauncher.
 
-- What platforms is AM2R availible on?
+- What platforms is AM2R available on?
 Currently, AM2R runs natively on Windows, Android, and Linux platforms.
 Linux support is provided as-is and is not guaranteed to run on any given machine.
 AM2R is capable of running on older Mac devices using Wine.
 
 - Will you release the source code?
-We currently have no plans to release the source code.
+It's public! Check out the AM2R-Community-Updates repository on GitHub.
 
 - How do I load custom title images/backgrounds/area intros?
 
 Title images: Place your custom image within the /lang/titles/ folder. It must use the following name format: 'language_x000_y000.png'.
-	- Replace 'language' with the same name as the language file you use.
+	- Replace 'language' with the same name as the language file you use. This is the name in the file header, not the filename. 
 	- Replace '000' after both 'x' and 'y' with the necessary coordinate offsets. 
 	- For example, a valid title file might be named 'english_x048_y032.png'
 	- If you need a negative 'x' title offset (for say, widescreen) simply add a minus sign in front of the 'x' coordinate: 'language_-x000_y000.png'.
@@ -771,6 +770,10 @@ CHANGELOG
 1.5.4
 - Fixed shader crash on Fusion Difficulty.
 
+1.5.5
+- Fixed credits fadein.
+- Fixed missing credits entry.
+- Fixed missing font characters.
 
 
 Thanks for supporting this continued effort. See you next mission!
@@ -852,8 +855,10 @@ Alex 'Wanderer' Mack
 Lojemiru
 
 Programming
-Craig Kostelecky
 Metroid3D
+Scooterboot
+Craig Kostelecky
+milesthenerd
 
 Art Lead
 Dannon 'Shmegleskimo' Yates
