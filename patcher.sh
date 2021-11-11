@@ -74,7 +74,9 @@ xdelta3 -dfs "${OUTPUT}"/data.win data/droid.xdelta  "${OUTPUT}"/game.droid
 rm "${OUTPUT}"/D3DX9_43.dll "${OUTPUT}"/AM2R.exe "${OUTPUT}"/data.win 
 
 #cp -RTp "${OUTPUT}"/ utilities/android/assets/
-cp -p data/android/AM2R.ini "${OUTPUT}"/
+if [ -f data/android/AM2R.ini ]; then
+    cp -p data/android/AM2R.ini "${OUTPUT}"/
+fi
 
 
 # Music
