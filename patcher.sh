@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # exit on any error to avoid showing everything was successfull even tho it wasnt
 set -e
@@ -35,7 +35,7 @@ echo ""
 echo "-------------------------------------------"
 
 #install dependencies
-pkg install subversion zip unzip xdelta3 -y
+pkg install -y subversion zip unzip xdelta3
 
 #check if apkmod is instaled, if not install it. I only use this for signing 'cause it's the only way I found this to work
 if ! [ -f /data/data/com.termux/files/usr/bin/apkmod ]; then
