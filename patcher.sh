@@ -1,3 +1,8 @@
+#!/bin/sh
+
+# exit on any error to avoid showing everything was successfull even tho it wasnt
+set -e
+
 VERSION="15_5"
 OUTPUT="am2r_"${VERSION}
 INPUT=""
@@ -24,7 +29,7 @@ fi
 
 echo "-------------------------------------------"
 echo ""
-echo "AM2R 1.5.4 Shell Autopatching Utility"
+echo "AM2R 1.5.5 Shell Autopatching Utility"
 echo "Scripted by Miepee and help from Lojemiru"
 echo ""
 echo "-------------------------------------------"
