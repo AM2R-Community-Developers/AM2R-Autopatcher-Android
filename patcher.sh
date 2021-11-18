@@ -124,7 +124,12 @@ cp -Rp assets AM2RWrapper
 echo "Editing apktool.yml..."
 sed -i "s/doNotCompress:/doNotCompress:\n- ogg/" AM2RWrapper/apktool.yml
 #build
-apkmod -r -i AM2RWrapper -o AM2R-"${VERSION}".apk
+# check if aapt2 exists, if not use aapt instead
+if [ -f /usr/bin/aapt2 ]; then
+    apkmod -r -i AM2RWrapper -o AM2R-"${VERSION}".apk
+else
+    apkmod -a -r -i AM2RWrapper -o AM2R-"${VERSION}".apk
+fi
 #Sign apk
 apkmod -s -i AM2R-"${VERSION}".apk -o AM2R-"${VERSION}"-signed.apk
 
