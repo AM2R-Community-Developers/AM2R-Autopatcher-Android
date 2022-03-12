@@ -40,7 +40,7 @@ pkg install -y subversion zip unzip xdelta3
 #check if apkmod is instaled, if not install it. I only use this for signing 'cause it's the only way I found this to work
 if ! [ -f /data/data/com.termux/files/usr/bin/apkmod ]; then
     wget https://raw.githubusercontent.com/Hax4us/Apkmod/master/setup.sh
-    sh setup.sh
+    bash setup.sh
     rm -f setup.sh
 fi
 
