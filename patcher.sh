@@ -91,7 +91,7 @@ echo "[y/n]"
 read -n1 INPUT
 echo ""
 
-if [ $INPUT = "y" ]; then
+if [ "$INPUT" = "y" ]; then
     echo "Downloading HQ music..."
     svn export https://github.com/AM2R-Community-Developers/AM2R-Autopatcher-Android/trunk/HDR_HQ_in-game_music
     echo "Copying HQ music..."
