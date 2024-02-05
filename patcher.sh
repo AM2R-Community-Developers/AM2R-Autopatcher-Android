@@ -35,7 +35,8 @@ echo ""
 echo "-------------------------------------------"
 
 #install dependencies
-pkg install -y git zip unzip xdelta3
+termux-setup-storage
+pkg install -y zip unzip xdelta3
 
 #check if apkmod is instaled, if not install it. I only use this for signing 'cause it's the only way I found this to work
 if ! [ -f /data/data/com.termux/files/usr/bin/apkmod ]; then
@@ -45,9 +46,9 @@ if ! [ -f /data/data/com.termux/files/usr/bin/apkmod ]; then
 fi
 
 #download the patch data
-git clone https://github.com/izzy2fancy/AM2R-Autopatcher-Android.git
-    cd AM2R-Autopatcher-Android
-    termux-setup-storage
+wget https://github.com/izzy2fancy/AM2R-Autopatcher-Android/releases/download/1.0/data.zip
+yes | unzip data.zip -d ./
+    
 
 #check for AM2R_11.zip in downloads
 if [ -f ~/storage/downloads/AM2R_11.zip ]; then
