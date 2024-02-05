@@ -35,8 +35,8 @@ echo ""
 echo "-------------------------------------------"
 
 #install dependencies
-termux-setup-storage
-pkg install -y zip unzip xdelta3
+yes | pkg install termux-am zip unzip xdelta3
+yes | termux-setup-storage
 
 #check if apkmod is instaled, if not install it. I only use this for signing 'cause it's the only way I found this to work
 if ! [ -f /data/data/com.termux/files/usr/bin/apkmod ]; then
