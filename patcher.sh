@@ -33,7 +33,7 @@ echo "-------------------------------------------"
 echo ""
 echo "AM2R 1.5.5 Shell Autopatching Utility"
 echo "Originally Scripted by Miepee and help from Lojemiru"
-echo $(tput bold)Updated by izzy2fancy
+echo "Updated by izzy2fancy"
 echo ""
 echo "-------------------------------------------"
 
