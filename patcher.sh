@@ -26,6 +26,8 @@ fi
 if [ -d "HDR_HQ_in-game_music/" ]; then
     rm -rf HDR_HQ_in-game_music
 fi
+    rm -rf data.zip
+    rm -rf HDR_HQ_in-game_music.zip
 
 echo "-------------------------------------------"
 echo ""
