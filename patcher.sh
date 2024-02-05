@@ -46,14 +46,8 @@ fi
 
 #download the patch data
 git clone https://github.com/izzy2fancy/AM2R-Autopatcher-Android.git
-
-#check if termux-storage has been setup
-if ! [ -d ~/storage ]; then
-    #create if no
+    cd AM2R-Autopatcher-Android
     termux-setup-storage
-fi
-
-echo ""
 
 #check for AM2R_11.zip in downloads
 if [ -f ~/storage/downloads/AM2R_11.zip ]; then
