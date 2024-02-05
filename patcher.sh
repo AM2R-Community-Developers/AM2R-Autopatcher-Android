@@ -88,10 +88,8 @@ echo ""
 
 if [ "$INPUT" = "y" ]; then
     echo "Downloading HQ music..."
-    svn export https://github.com/AM2R-Community-Developers/AM2R-Autopatcher-Android/trunk/HDR_HQ_in-game_music
-    echo "Copying HQ music..."
-    cp -f HDR_HQ_in-game_music/*.ogg "${OUTPUT}"/
-    rm -rf HDR_HQ_in-game_music/
+    wget https://github.com/izzy2fancy/AM2R-Autopatcher-Android/releases/download/2.0/HDR_HQ_in-game_music.zip
+yes | HDR_HQ_in-game_music.zip -d ./
 fi
 
 echo "Updating lang folder..."
